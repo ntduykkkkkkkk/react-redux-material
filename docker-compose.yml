@@ -1,0 +1,35 @@
+version: '3'
+services:
+    jenkins:
+        image: jenkins/jenkins:lts
+        privileged: true
+        ports:
+            - 8080:8080
+            - 443:8443
+            - 50000:50000
+        container_name: jenkins
+        volumes:
+            - /home/happy/jenkins-data:/var/jenkins_home
+    portainer:
+        image: portainer/portainer
+        restart: always
+        command: -H unix:///var/run/docker.sock
+        ports:
+            - 9000:9000
+            - 8000:8000
+        container_name: portainer
+        volumes:
+            - /home/happy/portainer-data:/var/run/docker.sock
+            - /home/happy/portainer-data:/data
+    nexus3:
+        image: sonatype/nexus3
+        ports:
+            - "8081:8081"
+            - "5000:5000"
+        container_name: nexus
+        volumes:
+            - /home/happy/nexus-data:/nexus-data
+volumes:
+    portainer_data:
+
+
