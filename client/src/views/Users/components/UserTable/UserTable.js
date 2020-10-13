@@ -45,17 +45,14 @@ const UserTable = ({classes, ...props}) => {
     useEffect(() => {
         props.fetchAllUsers()
     })
-    const { className, users, ...rest } = props;
     const [selectedUsers, setSelectedUsers] = useState([])
     const [rowsPerPage, setRowsPerPage] = useState(10)
     const [page, setPage] = useState(0)
 
     const handleSelectAll = (event) => {
-        console.log(props.userList)
-        const { users } = props;
         let selectedUsers;
         if (event.target.checked) {
-            selectedUsers = users.map(user => user._id)
+            selectedUsers = props.userList.map(user => user._id)
         }else{
             selectedUsers = [];
         }
@@ -75,7 +72,6 @@ const UserTable = ({classes, ...props}) => {
         }else if (selectedIndex > 0) {
             newSelectedUsers = newSelectedUsers.concat(selectedUsers.slice(0, selectedIndex), selectedUsers.slice(selectedIndex + 1))
         }
-
         setSelectedUsers(newSelectedUsers)
     }
 
@@ -96,10 +92,10 @@ const UserTable = ({classes, ...props}) => {
                                 <TableRow>
                                     <TableCell padding="checkbox">
                                         <Checkbox 
-                                            checked={selectedUsers.length === users.length}
+                                            checked={selectedUsers.length === props.userList.length}
                                             color="primary"
                                             indeterminate={
-                                                selectedUsers.length > 0 && selectedUsers.length < users.length
+                                                selectedUsers.length > 0 && selectedUsers.length < props.userList.length
                                             }
                                             onChange={handleSelectAll}
                                         />
@@ -144,12 +140,12 @@ const UserTable = ({classes, ...props}) => {
             <CardActions>
                 <TablePagination 
                     component="div"
-                    count={users.length}
+                    count={props.userList.length}
                     onChangePage={handlePageChange}
                     onChangeRowsPerPage={handleRowsPerPageChange}
                     page={page}
                     rowsPerPage={rowsPerPage}
-                    rowsPerPageOptions={[5,10,25]}
+                    rowsPerPageOptions={[5, 10, 25]}
                 />
             </CardActions>
         </Card>
@@ -157,8 +153,7 @@ const UserTable = ({classes, ...props}) => {
 }
 
 UserTable.propTypes = {
-    className: PropTypes.string,
-    users: PropTypes.array.isRequired
+    className: PropTypes.string
 }
 
 const mapStateToProps = state => ({
