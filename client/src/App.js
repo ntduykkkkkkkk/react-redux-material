@@ -6,6 +6,7 @@ import Routes from './Routes';
 import theme from './theme';
 import { Provider } from 'react-redux'
 import { store } from './store'
+import './assets/scss/index.scss';
 
 
 const browserHistory = createBrowserHistory()

@@ -1,5 +1,4 @@
 import { userTypes } from '../_constants';
-import axios from 'axios';
 import userServices from '../_services/user'
 
 export const fetchAllUsers = () => dispatch =>{

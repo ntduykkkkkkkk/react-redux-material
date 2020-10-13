@@ -1,11 +1,8 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/styles';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { Avatar, Typography } from '@material-ui/core';
+import { Avatar, Typography, withStyles } from '@material-ui/core';
 import { Link as RouterLink } from "react-router-dom";
 
-const useStyles = makeStyles(theme => ({
+const styles = theme => ({
     root: {
         display: 'flex',
         flexDirection: 'column',
@@ -19,19 +16,19 @@ const useStyles = makeStyles(theme => ({
     name: {
         marginTop: theme.spacing(1)
     }
-}))
+})
 
-const Profile = props => {
-    const { className, ...rest } = props;
-    const classes = useStyles();
+const Profile = ({classes}) => {
     const user = {
         name: 'Zhang Min',
         avatar: '/images/avatars/avatar_6.png',
         bio: 'For a sweet feature'
     }
     return (
-        <div {...rest} className={clsx(classes.root, className)}>
+        <div className={`${classes.root}`}>
             <Avatar
+                variant="square"
+                className={classes.square}
                 alt='person'
                 className={classes.avatar}
                 src={user.avatar}
@@ -44,8 +41,4 @@ const Profile = props => {
     )
 }
 
-Profile.propTypes = {
-    className: PropTypes.string
-}
-
-export default Profile;
+export default withStyles(styles)(Profile)

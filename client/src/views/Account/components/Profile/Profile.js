@@ -40,7 +40,7 @@ const Profile = ({classes, ...props}) => {
                         <Typography className={classes.locationText} corlor="textSecondary" variant="body1">{user.city}, {user.country}</Typography>
                         <Typography className={classes.dateText} corlor="textSecondary" variant="body1">{moment().format('hh:mm A')} ({user.timezone})</Typography>
                     </div>
-                    <Avatar className={`${classes.avatar}`} src={user.avatar}/>
+                    <Avatar variant="square" className={classes.square} className={`${classes.avatar}`} src={user.avatar}/>
                 </div>
                 <div className={`${classes.progress}`}>
                     <Typography variant="body1"> Profile Completeness: 70%</Typography>
@@ -51,6 +51,9 @@ const Profile = ({classes, ...props}) => {
             <CardActions>
                 <Button className={`${classes.uploadButton}`} color="primary" variant="text">
                     Upload picture
+                </Button>
+                <Button className={`${classes.uploadButton}`} color="action" variant="text">
+                    Remove picture
                 </Button>
             </CardActions>
         </Card>

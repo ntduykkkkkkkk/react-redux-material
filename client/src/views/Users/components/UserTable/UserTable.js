@@ -44,7 +44,7 @@ const UserTable = ({classes, ...props}) => {
 
     useEffect(() => {
         props.fetchAllUsers()
-    })
+    }, [])
     const [selectedUsers, setSelectedUsers] = useState([])
     const [rowsPerPage, setRowsPerPage] = useState(10)
     const [page, setPage] = useState(0)

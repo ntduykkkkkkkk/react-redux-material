@@ -45,10 +45,10 @@ const CustomRouterLink = forwardRef((props, ref) => (
 ));
 
 const Sidebarnav = props => {
-    const { pages, className, ...rest } = props;
+    const { pages } = props;
     const classes = useStyles()
     return (
-        <List {...rest} className={clsx(classes.root, className)}>
+        <List className={classes.root}>
             {
                 pages.map(page => (
                     <ListItem className={classes.item} disableGutters key={page.title}>
@@ -69,7 +69,6 @@ const Sidebarnav = props => {
 }
 
 Sidebarnav.propTypes = {
-    className: PropTypes.string,
     pages: PropTypes.array.isRequired
 }
 

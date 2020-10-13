@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core'
 import { Button } from '@material-ui/core'
+import DeleteIcon from '@material-ui/icons/Delete';
+import SaveIcon from '@material-ui/icons/Save';
 
 const styles = theme => ({
     root: {},
@@ -15,10 +17,13 @@ const styles = theme => ({
         flexGrow: 1
     },
     importButton: {
-        marginRight: theme.spacing(1)
+        marginRight: theme.spacing(2)
     },
     exportButton: {
-        marginRight: theme.spacing(1)
+        marginRight: theme.spacing(2)
+    },
+    deleteButton: {
+        marginRight: theme.spacing(2)
     },
 })
 
@@ -28,9 +33,26 @@ const Toolbar = ({classes, ...props}) => {
         <div {...rest} className={`${classes.root}`}>
             <div className={`${classes.row}`}>
                 <span className={`${classes.spacer}`}/>
+                <Button
+                    // variant="contained"
+                    // color="primary"
+                    // size="small"
+                    className={`${classes.importButton}`}
+                    // startIcon={<SaveIcon />}
+                >
+                    Create
+                </Button>
+                <Button 
+                    // color="secondary" 
+                    className={`${classes.importButton}`} 
+                    // variant="contained" 
+                    // size="small"
+                    // startIcon={<DeleteIcon />}
+                >
+                        Delete
+                </Button>
                 <Button className={`${classes.importButton}`}>Import</Button>
-                <Button className={`${classes.exportButton}`}>Emport</Button>
-                <Button color="primary" variant="contained">New User</Button>
+                <Button className={`${classes.exportButton}`}>Export</Button>
             </div>
         </div>
     )
