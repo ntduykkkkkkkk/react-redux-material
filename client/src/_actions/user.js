@@ -8,3 +8,11 @@ export const fetchAllUsers = () => dispatch =>{
         })
         .catch(err => console.log(err))
 }
+
+export const createUser = () => dispatch =>{
+    userServices.user().create()
+        .then(res => {
+            dispatch({ type: userTypes.CREATE_USER, payload: res.data})
+        })
+        .catch(err => console.log(err))
+}

@@ -12,6 +12,11 @@ export const user = (state = initialState, action ) => {
                 ...state,
                 list: [...action.payload]
             }
+            case userTypes.CREATE_USER:
+                return {
+                    ...state,
+                    list: [...state.list, ...action.payload]
+                }
         default:
             return state
     }

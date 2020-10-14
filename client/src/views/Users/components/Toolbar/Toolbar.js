@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core'
 import { Button } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 import DeleteIcon from '@material-ui/icons/Delete';
 import SaveIcon from '@material-ui/icons/Save';
 
@@ -40,7 +41,8 @@ const Toolbar = ({classes, ...props}) => {
                     className={`${classes.importButton}`}
                     // startIcon={<SaveIcon />}
                 >
-                    Create
+                    <Link to="/create-user">Create</Link>
+                    
                 </Button>
                 <Button 
                     // color="secondary" 

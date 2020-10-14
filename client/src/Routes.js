@@ -8,7 +8,8 @@ import {
     Account as AccountView,
     Users as UsersView,
     SignIn as SignInView,
-    SignUp as SignUpView
+    SignUp as SignUpView,
+    CreateUser as CreateUserView,
 } from './views';
 
 const Routes = () => {
@@ -21,6 +22,7 @@ const Routes = () => {
             <RouteWithLayout component={UsersView} layout={MainLayout} path="/users" />
             <RouteWithLayout component={SignInView} layout={MinimalLayout} path="/sign-in" />
             <RouteWithLayout component={SignUpView} layout={MinimalLayout} path="/sign-up" />
+            <RouteWithLayout component={CreateUserView} layout={MainLayout} path="/create-user" />
             <Redirect to="/not-found"/>
         </Switch>
     )

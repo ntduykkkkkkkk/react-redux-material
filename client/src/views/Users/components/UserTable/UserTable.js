@@ -137,7 +137,7 @@ const UserTable = ({classes, ...props}) => {
                     </div>
                 </PerfectScrollbar>
             </CardContent>
-            <CardActions>
+            <CardActions className={`${classes.actions}`}>
                 <TablePagination 
                     component="div"
                     count={props.userList.length}
